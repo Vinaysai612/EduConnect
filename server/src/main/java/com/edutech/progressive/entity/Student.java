@@ -2,21 +2,24 @@ package com.edutech.progressive.entity;
 
 import java.util.Date;
 
-public class Student {
+public class Student implements Comparable<Student>{
     private int studentId;
+    private String fullName;
     private Date dateOfBirth;
     private String contactNumber;
     private String email;
     private String address;
     public Student() {
     }
-    public Student(int studentId, Date dateOfBirth, String contactNumber, String email, String address) {
+    public Student(int studentId,String fullName, Date dateOfBirth, String contactNumber, String email, String address) {
         this.studentId = studentId;
+        this.fullName=fullName;
         this.dateOfBirth = dateOfBirth;
         this.contactNumber = contactNumber;
         this.email = email;
         this.address = address;
     }
+    
     public int getStudentId() {
         return studentId;
     }
@@ -46,6 +49,16 @@ public class Student {
     }
     public void setAddress(String address) {
         this.address = address;
+    }
+    public String getFullName() {
+        return fullName;
+    }
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+    @Override
+    public int compareTo(Student otherStudent) {
+        return this.fullName.compareTo(otherStudent.fullName);
     }
     
 }
